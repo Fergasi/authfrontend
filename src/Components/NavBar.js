@@ -37,10 +37,13 @@ const NavBar = ({ isAuthLoading, setIsAuthLoading }) => {
             </span>
             <br />
             <button
-              onClick={() => {
-                logoutUser();
-                setUserToken("");
-                navigate("/");
+              onClick={async () => {
+                setIsAuthLoading(true);
+                const logoutSuccess = await logoutUser();
+                if (logoutSuccess) {
+                  setIsAuthLoading(false);
+                  navigate("/");
+                }
               }}
             >
               Logout
