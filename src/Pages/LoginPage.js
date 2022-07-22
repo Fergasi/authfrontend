@@ -10,6 +10,8 @@ const LoginPage = ({ setIsAuthLoading }) => {
   return (
     <div>
       <h3>Login</h3>
+      <br />
+      <br />
       <label>Username: </label>
       <input
         type='text'
@@ -41,6 +43,8 @@ const LoginPage = ({ setIsAuthLoading }) => {
           if (isUserLoggedIn) {
             setIsAuthLoading(false);
             navigate("/");
+          } else {
+            alert("Username or password are incorrect");
           }
         }}
       >

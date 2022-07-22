@@ -13,44 +13,53 @@ const NavBar = ({ isAuthLoading, setIsAuthLoading }) => {
 
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          {!userToken && (
-            <>
-              <li>
-                <Link to='/login'>Login</Link>
-              </li>
-              <li>
-                <Link to='/registration'>Registration</Link>
-              </li>
-            </>
-          )}
-        </ul>
-        <Outlet />
-        {userToken && (
-          <>
-            <span>
-              <strong>You Are Logged In</strong>
-            </span>
-            <br />
-            <button
-              onClick={async () => {
-                setIsAuthLoading(true);
-                const logoutSuccess = await logoutUser();
-                if (logoutSuccess) {
-                  setIsAuthLoading(false);
-                  navigate("/");
-                }
-              }}
-            >
-              Logout
-            </button>
-          </>
-        )}
-      </nav>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <Link id='navItem' to='/'>
+                Home
+              </Link>
+            </li>
+            {!userToken && (
+              <>
+                <li>
+                  <Link id='navItem' to='/login'>
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link id='navItem' to='/registration'>
+                    Registration
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </nav>
+      </header>
+      <Outlet />
+      {userToken && (
+        <>
+          <span>
+            <strong>You Are Logged In</strong>
+          </span>
+          <br />
+          <br />
+          <button
+            onClick={async () => {
+              setIsAuthLoading(true);
+              const logoutSuccess = await logoutUser();
+              if (logoutSuccess) {
+                setIsAuthLoading(false);
+                navigate("/");
+              }
+            }}
+          >
+            Logout
+          </button>
+        </>
+      )}
     </div>
   );
 };

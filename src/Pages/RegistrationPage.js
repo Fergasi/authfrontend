@@ -10,6 +10,8 @@ const RegistrationPage = ({ isAuthLoading, setIsAuthLoading }) => {
   return (
     <div>
       <h3>Registration</h3>
+      <br />
+      <br />
       <label>Username: </label>
       <input
         type='text'

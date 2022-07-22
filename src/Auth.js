@@ -34,12 +34,13 @@ export const loginUser = async (username, password) => {
       JSON.stringify(responseJSON.token)
     );
   }
+
   return responseJSON.success;
 };
 
 export const logoutUser = () => {
   localStorage.removeItem(process.env.REACT_APP_TOKEN_HEADER_KEY);
-  return;
+  return true;
 };
 
 export const getUserToken = () => {
