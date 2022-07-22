@@ -9,8 +9,10 @@ const LoginPage = ({ setIsAuthLoading }) => {
 
   return (
     <div>
-      <h3>Login</h3>
       <br />
+      <br />
+      <br />
+      <h3>Login</h3>
       <br />
       <label>Username: </label>
       <input

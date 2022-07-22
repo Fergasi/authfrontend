@@ -39,12 +39,19 @@ const NavBar = ({ isAuthLoading, setIsAuthLoading }) => {
         </nav>
       </header>
       <Outlet />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       {userToken && (
-        <>
+        <div id='footer'>
           <span>
-            <strong>You Are Logged In</strong>
+            <strong id='loginMsg'>You Are Logged In</strong>
           </span>
-          <br />
           <br />
           <button
             onClick={async () => {
@@ -58,7 +65,7 @@ const NavBar = ({ isAuthLoading, setIsAuthLoading }) => {
           >
             Logout
           </button>
-        </>
+        </div>
       )}
     </div>
   );

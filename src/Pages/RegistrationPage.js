@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser, loginUser } from "../Auth";
 
-const RegistrationPage = ({ isAuthLoading, setIsAuthLoading }) => {
+const RegistrationPage = ({ setIsAuthLoading }) => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   return (
     <div>
-      <h3>Registration</h3>
       <br />
+      <br />
+      <br />
+      <h3>Registration</h3>
       <br />
       <label>Username: </label>
       <input
@@ -44,7 +46,6 @@ const RegistrationPage = ({ isAuthLoading, setIsAuthLoading }) => {
             const isUserLoggedIn = await loginUser(username, password);
             if (isUserLoggedIn) {
               setIsAuthLoading(false);
-
               navigate("/");
             }
           }
